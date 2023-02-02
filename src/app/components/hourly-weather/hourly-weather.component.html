@@ -1,0 +1,11 @@
+<button (click)="scrollLeft()" [disabled]="indexFirstHourlyWeatherItem <= 0">&lt;</button>
+<div class="hourly-item-row-container">
+    <div class="hourly-item-row" [style.transform]="'translateX(' + translateX + '%)'">
+        <div class="hourly-item" *ngFor="let item of weatherData!.hourly; index as i">
+            <span>{{getFormattedTime(weatherData!.hourly[i].dt)}}</span>
+            <img src="../assets/open-weather-icons/{{weatherData!.hourly[i].weather[0].icon}}.png">
+            <span>{{weatherData!.hourly[i].temp - 273.15 | number: '1.0-0'}}°C</span>
+        </div>
+    </div>
+</div>
+<button (click)="scrollRight()" [disabled]="indexFirstHourlyWeatherItem >= 20">&gt;</button>

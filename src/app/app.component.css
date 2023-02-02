@@ -1,0 +1,57 @@
+app-searchbar {
+    display: flex;
+    margin-bottom: 1em;
+    justify-content: center;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+    height: 80vh;
+    min-height: 560px;
+    overflow: hidden;
+    background-color: var(--background-2);
+    box-shadow: 10px 10px 10px var(--shadow-dark);
+    border-radius: 20px;
+}
+
+app-upper-data {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 50%;
+}
+
+.lower-data {
+    align-items: center;
+    display: flex;
+    flex: auto;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+    min-height: 290px;
+}
+
+.content-box {
+    width: 89%;
+    margin: 0 5px;
+    padding: 0.7em;
+    background-color: var(--shadow-light);
+    border-radius: 20px;
+}
+
+.content-box img {
+    margin: 6px;
+}
+
+app-current-weather-more-info {
+    display: flex;
+    flex-direction: row;
+}
+
+app-hourly-weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

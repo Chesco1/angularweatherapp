@@ -1,0 +1,20 @@
+<div class="info-block">
+    <img src="../assets/humidity.png">
+    <span class="descriptor">Humidity</span>
+    <span class="value">{{weatherData!.current.humidity | number: '1.0-0'}}%</span>
+</div>
+<div class="info-block">
+    <img src="../assets/wind.png">
+    <span class="descriptor">Wind</span>
+    <span class="value">{{weatherData!.current.wind_speed | number: '1.0-0'}} km/h</span>
+</div>
+<div class="info-block">
+    <img src="../assets/sun.png">
+    <span class="descriptor">Sunrise</span>
+    <span class="value">{{getFormattedTime(weatherData!.current.sunrise)}}</span>
+</div>
+<div class="info-block">
+    <img src="../assets/moon.png">
+    <span class="descriptor">Sunset</span>
+    <span class="value">{{getFormattedTime(weatherData!.current.sunset)}}</span>
+</div>

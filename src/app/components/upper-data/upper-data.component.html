@@ -1,0 +1,7 @@
+<img src="../assets/hot.jpg">
+
+<div class="weather-data">
+    <div class="location"> {{cityName}} </div>
+    <div class="temperature"> {{weatherData!.current.temp - 273.15 | number: '1.0-0'}}°C </div>
+    <div class="description"> {{weatherData!.current.weather[0].description}} </div>
+</div>

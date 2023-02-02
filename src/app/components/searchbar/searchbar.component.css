@@ -1,0 +1,10 @@
+input {
+    color: var(--light-grey);
+    background-color: var(--shadow-light);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 1em;
+    font-size: 1em;
+    text-align: center;
+}

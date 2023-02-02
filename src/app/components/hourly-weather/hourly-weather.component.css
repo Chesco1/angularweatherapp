@@ -1,0 +1,47 @@
+.hourly-weather-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    width: 8%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.5em;
+}
+
+button:hover:enabled {
+    color: rgb(47, 0, 255);
+}
+
+.hourly-item-row-container {
+    justify-content: center;
+    overflow-x: hidden;
+    width: 82%;
+}
+
+.hourly-item-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.25s ease-in-out;
+}
+
+.hourly-item {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    padding: 0.5em;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 0.75em;
+}
+
+.hourly-item img {
+    width: 3em;
+}
