@@ -11,10 +11,10 @@
 <div class="info-block">
     <img src="../assets/sun.png">
     <span class="descriptor">Sunrise</span>
-    <span class="value">{{getFormattedTime(weatherData!.current.sunrise)}}</span>
+    <span class="value">{{getFormattedTime(weatherData!.current.sunrise + weatherData!.timezone_offset)}}</span>
 </div>
 <div class="info-block">
     <img src="../assets/moon.png">
     <span class="descriptor">Sunset</span>
-    <span class="value">{{getFormattedTime(weatherData!.current.sunset)}}</span>
+    <span class="value">{{getFormattedTime(weatherData!.current.sunset + weatherData!.timezone_offset)}}</span>
 </div>

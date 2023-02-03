@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { UpperDataComponent } from './components/upper-data/upper-data.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { CurrentWeatherMoreInfoComponent } from './components/current-weather-more-info/current-weather-more-info.component';
-import { HourlyWeatherComponent } from './components/hourly-weather/hourly-weather.component';
+import { HourlyDailyComponent } from './components/hourly-daily/hourly-daily.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { HourlyWeatherComponent } from './components/hourly-weather/hourly-weath
     UpperDataComponent,
     SearchbarComponent,
     CurrentWeatherMoreInfoComponent,
-    HourlyWeatherComponent,
+    HourlyDailyComponent,
   ],
   imports: [
     BrowserModule,

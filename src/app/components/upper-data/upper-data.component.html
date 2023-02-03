@@ -1,7 +1,13 @@
-<img src="../assets/hot.jpg">
+<img src={{getBackgroundImagePath()}}>
 
 <div class="weather-data">
-    <div class="location"> {{cityName}} </div>
-    <div class="temperature"> {{weatherData!.current.temp - 273.15 | number: '1.0-0'}}°C </div>
-    <div class="description"> {{weatherData!.current.weather[0].description}} </div>
+    <span class="location"> {{cityName}} </span>
+    <span class="day-and-time"> {{getFormattedDayFromTimestamp(weatherData!.current.dt +
+        weatherData!.timezone_offset) + ', ' +
+        getFormattedTime(weatherData!.current.dt + weatherData!.timezone_offset)}} </span>
+    <span class="temperature"> {{toFormattedCelsius(weatherData!.current.temp)}} </span>
+    <span class="description"> {{weatherData!.current.weather[0].description}} </span>
+    <span class="extra-temp-info"> {{(toFormattedCelsius(weatherData!.daily[0].temp.max)) + ' / ' +
+        (toFormattedCelsius(weatherData!.daily[0].temp.min)) + ' ' + ' Feels like ' +
+        (toFormattedCelsius(weatherData!.current.feels_like))}} </span>
 </div>

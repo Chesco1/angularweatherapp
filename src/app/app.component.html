@@ -1,14 +1,10 @@
-<app-searchbar (citySubmitted)="getWeatherData($event)"></app-searchbar>
+<app-searchbar (citySubmitted)="onCityNameSubmitted($event)"></app-searchbar>
 <div class="outer-container" *ngIf="weatherData">
   <app-upper-data [cityName]="cityName" [weatherData]="weatherData"></app-upper-data>
   <div class="lower-data">
     <div class="content-box">
       <app-current-weather-more-info [weatherData]="weatherData"></app-current-weather-more-info>
     </div>
-    <div class="content-box">
-      <div class="hourly-weather-container">
-        <app-hourly-weather [weatherData]="weatherData"></app-hourly-weather>
-      </div>
-    </div>
+    <app-hourly-daily [weatherData]="weatherData"></app-hourly-daily>
   </div>
 </div>

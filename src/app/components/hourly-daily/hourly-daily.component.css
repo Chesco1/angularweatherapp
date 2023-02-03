@@ -1,0 +1,93 @@
+.hourly-daily-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.switch-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.switch-buttons button {
+    font-size: 0.88em;
+    padding: 7px;
+    width: 40%;
+    background-color: transparent;
+    border: none;
+    color: grey;
+    font-weight: 100;
+}
+
+.switch-buttons button:hover:enabled {
+    color: whitesmoke;
+}
+
+.switch-buttons button:disabled {
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+.hourly-daily-container button {
+    width: 7%;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.5em;
+}
+
+.hourly-daily-container button:hover:enabled {
+    color: rgb(47, 0, 255);
+}
+
+.hourly-daily-row-container {
+    overflow-x: hidden;
+    width: 85%;
+}
+
+.hourly-daily-item-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.hourly-item {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    padding: 0.5em;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 0.75em;
+}
+
+img {
+    width: 3em;
+}
+
+.temp-max-min {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.temp-max-min span {
+    margin: 0 4px;
+}
+
+.temp-min {
+    color: rgb(145, 145, 145);
+    font-size: 0.95em;
+}
+
+.descriptor {
+    font-weight: 600;
+}

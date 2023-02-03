@@ -5,9 +5,10 @@ app-searchbar {
 }
 
 .outer-container {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    width: 420px;
+    width: 430px;
     height: 80vh;
     min-height: 560px;
     overflow: hidden;
@@ -26,23 +27,11 @@ app-upper-data {
 .lower-data {
     align-items: center;
     display: flex;
-    flex: auto;
     justify-content: space-evenly;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     min-height: 290px;
-}
-
-.content-box {
-    width: 89%;
-    margin: 0 5px;
-    padding: 0.7em;
-    background-color: var(--shadow-light);
-    border-radius: 20px;
-}
-
-.content-box img {
-    margin: 6px;
+    flex: auto;
 }
 
 app-current-weather-more-info {
@@ -50,8 +39,16 @@ app-current-weather-more-info {
     flex-direction: row;
 }
 
-app-hourly-weather {
+.hourly-daily-container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+app-hourly-daily {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }

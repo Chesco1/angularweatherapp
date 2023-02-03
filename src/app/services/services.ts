@@ -4,7 +4,9 @@ import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
 import { WeatherData } from '../models/weather.model';
 import { LocationData } from '../models/location.model';
-import { map, switchMap } from 'rxjs';
+import { map, of, switchMap } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +19,23 @@ export class Services {
     return this.http.get<LocationData>(`${environment.geoCodingApiBaseUrl}q=${cityName}&appid=${environment.apiKey}`);
   }
 
-
-  getWeatherData(city: string): Observable<WeatherData> {
-    return this.getCoordinates(city).pipe(
-
-      map(res => (res[0])),
+  getWeatherData(city: string): Observable<any> {
+    return (this.getCoordinates(city)).pipe(
+      map(res => {
+        if (!res) {
+          throw new Error('result === null');
+        }
+        return res[0];
+      }),
       switchMap(location => {
+        if (!location) {
+          throw new Error('Location not found');
+        }
         return this.http.get<WeatherData>(`${environment.oneCallApiBaseUrl}lat=${location.lat}&lon=${location.lon}&appid=${environment.apiKey}`);
+      }),
+      catchError(error => {
+        console.error(error.message);
+        return of(null);
       })
     );
   }

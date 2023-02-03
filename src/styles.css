@@ -1,8 +1,8 @@
 :root {
-    --background-1: #280079;
-    --background-2: #2d1f97;
-    --shadow-dark: rgba(0, 0, 0, 0.4);
-    --shadow-light: rgba(255, 255, 255, 0.15);
+    --background-1: #18064c;
+    --background-2: #2c0e85;
+    --shadow-dark: rgba(0, 0, 0, 0.35);
+    --shadow-light: rgba(255, 255, 255, 0.13);
     --light-grey: #ededede5;
 }
 
@@ -21,6 +21,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.content-box {
+    width: 100%;
+    padding: 0.7em;
+    background-color: var(--shadow-light);
+    border-radius: 20px;
 }
 
 .content-box img {

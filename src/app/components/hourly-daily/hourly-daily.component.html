@@ -1,0 +1,40 @@
+<div class="switch-buttons">
+    <button (click)="setTimeInterval('hourly')" [disabled]="selectedTimeInterval === 'hourly'">Next 24
+        hours</button>
+    <button (click)="setTimeInterval('weekly')" [disabled]="selectedTimeInterval === 'weekly'">Next 7
+        days</button>
+</div>
+
+<div class="content-box">
+    <div class="hourly-daily-container">
+        <button (click)="scrollLeft()" [disabled]="shouldDisableButton('left')">&lt;</button>
+
+        <div class="hourly-daily-row-container">
+            <div class="hourly-daily-item-row" [style.transform]="'translateX(' + translateX + '%)'"
+                [style.transition]="'transform ' + animationDuration + 's ease-in-out'">
+                <div class="hourly-daily-item-row" *ngIf="selectedTimeInterval === 'hourly'">
+                    <div class="hourly-item" *ngFor="let hour of weatherData!.hourly | slice:1">
+                        <span class="descriptor">{{getFormattedTime(hour.dt +
+                            weatherData!.timezone_offset)}}</span>
+                        <img src="../assets/open-weather-icons/{{hour.weather[0].icon}}.png">
+                        <span>{{toFormattedCelsius(hour.temp)}}</span>
+                    </div>
+                </div>
+
+                <div class="hourly-daily-item-row" *ngIf="selectedTimeInterval === 'weekly'">
+                    <div class="hourly-item" *ngFor="let day of weatherData!.daily">
+                        <span class="descriptor">{{getFormattedDayFromTimestamp(day.dt +
+                            weatherData!.timezone_offset)}}</span>
+                        <img src="../assets/open-weather-icons/{{day.weather[0].icon}}.png">
+                        <div class="temp-max-min">
+                            <span class="temp-max">{{toFormattedCelsius(day.temp.max)}}</span>
+                            <span class="temp-min">{{toFormattedCelsius(day.temp.min)}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button (click)="scrollRight()" [disabled]="shouldDisableButton('right')">&gt;</button>
+    </div>
+</div>

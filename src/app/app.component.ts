@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Hourly, WeatherData } from './models/weather.model';
 import { Services } from './services/services';
 import { Utilities } from './utilities/utilities';
+import { HourlyDailyComponent } from './components/hourly-daily/hourly-daily.component';
 
 @Component({
   selector: 'app-root',
@@ -10,40 +11,18 @@ import { Utilities } from './utilities/utilities';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
+  @ViewChild(HourlyDailyComponent) hourlyDaily?: HourlyDailyComponent;
   constructor(private weatherService: Services) { }
 
   weatherData?: WeatherData;
   cityName: string = "Amsterdam";
 
-  translateX: number = 0;
-
-  itemJumpPerClick: number = 4;
-  indexFirstHourlyWeatherItem: number = 0;
-
-
-
-  scrollLeft(): void {
-    if (this.indexFirstHourlyWeatherItem > 0) {
-      this.translateX += 100;
-      this.indexFirstHourlyWeatherItem -= this.itemJumpPerClick;
-    }
-  }
-
-  scrollRight(): void {
-    if (this.indexFirstHourlyWeatherItem < 20) {
-      this.translateX -= 100;
-      this.indexFirstHourlyWeatherItem += this.itemJumpPerClick;
-    }
-  }
-
-  scrollToStart(): void {
-    this.translateX += (100 * this.indexFirstHourlyWeatherItem / 4);
-    this.indexFirstHourlyWeatherItem = 0;
-  }
-
   getFormattedTime(timestamp: number): string {
     return Utilities.getFormattedTime(timestamp);
+  }
+
+  onCityNameSubmitted(cityName: string) {
+    this.getWeatherData(cityName);
   }
 
   ngOnInit(): void {
@@ -55,9 +34,10 @@ export class AppComponent implements OnInit {
       response => {
         if (response) {
           this.weatherData = response;
-          this.cityName = cityName;
-          this.scrollToStart();
-          console.log(response);
+          this.cityName = Utilities.getFormattedCityName(cityName);
+          if (this.hourlyDaily) {
+            this.hourlyDaily!.setTimeInterval('hourly');
+          }
         }
       }
     );
