@@ -7,7 +7,11 @@
         getFormattedTime(weatherData!.current.dt + weatherData!.timezone_offset)}} </span>
     <span class="temperature"> {{toFormattedCelsius(weatherData!.current.temp)}} </span>
     <span class="description"> {{weatherData!.current.weather[0].description}} </span>
-    <span class="extra-temp-info"> {{(toFormattedCelsius(weatherData!.daily[0].temp.max)) + ' / ' +
-        (toFormattedCelsius(weatherData!.daily[0].temp.min)) + ' ' + ' Feels like ' +
-        (toFormattedCelsius(weatherData!.current.feels_like))}} </span>
+    <span>
+        <span class="extra-temp-info"> {{(toFormattedCelsius(weatherData!.daily[0].temp.max)) + ' / ' +
+            (toFormattedCelsius(weatherData!.daily[0].temp.min))}} </span>
+        <span class="extra-temp-info"> {{'Feels like ' +
+            (toFormattedCelsius(weatherData!.current.feels_like))}} </span>
+    </span>
+
 </div>
